@@ -4,7 +4,10 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 
-public interface PlanetAPI {
+public interface StarWarsAPI {
+    @GET("api/people/{number}")
+    Call<PersonResponse> getPerson(@Path("number") int number);
+
     @GET("api/planets/{number}")
     Call<PlanetResponse> getPlanet(@Path("number") int number);
 }

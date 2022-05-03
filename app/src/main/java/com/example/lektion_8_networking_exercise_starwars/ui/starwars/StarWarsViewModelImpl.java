@@ -6,27 +6,27 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.lektion_8_networking_exercise_starwars.webservice.Person;
-import com.example.lektion_8_networking_exercise_starwars.webservice.PersonRepository;
+import com.example.lektion_8_networking_exercise_starwars.webservice.StarWarsRepository;
 import com.example.lektion_8_networking_exercise_starwars.webservice.Planet;
 
 public class StarWarsViewModelImpl extends ViewModel implements StarWarsViewModel{
-    PersonRepository personRepository;
+    StarWarsRepository starWarsRepository;
 
     public StarWarsViewModelImpl() {
-        personRepository = PersonRepository.getInstance();
+        starWarsRepository = StarWarsRepository.getInstance();
     }
 
     public LiveData<Person> getSearchedPerson() {
-        return personRepository.getSearchedPerson();
+        return starWarsRepository.getSearchedPerson();
     }
 
     @Override
     public LiveData<Planet> getSearchedPlanet() {
-        Log.i("Retrofit", "getSearchedPlanet: " + personRepository.getSearchedPlanet());
-        return personRepository.getSearchedPlanet();
+        Log.i("Retrofit", "getSearchedPlanet: " + starWarsRepository.getSearchedPlanet());
+        return starWarsRepository.getSearchedPlanet();
     }
 
     public void searchForPerson(int number) {
-        personRepository.searchForPerson(number);
+        starWarsRepository.searchForPerson(number);
     }
 }

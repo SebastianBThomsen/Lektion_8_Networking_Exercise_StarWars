@@ -10,19 +10,21 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.internal.EverythingIsNonNull;
 
-public class PersonRepository {
-    private static PersonRepository instance;
+public class StarWarsRepository {
+    private static StarWarsRepository instance;
     private final MutableLiveData<Person> searchedPerson;
     private final MutableLiveData<Planet> searchedPlanet;
+    StarWarsAPI starwarsAPI;
 
-    private PersonRepository() {
+    private StarWarsRepository() {
         searchedPerson = new MutableLiveData<>();
         searchedPlanet = new MutableLiveData<>();
+        starwarsAPI = StarWarsServiceGenerator.getStarwarsAPI();
     }
 
-    public static synchronized PersonRepository getInstance() {
+    public static synchronized StarWarsRepository getInstance() {
         if (instance == null) {
-            instance = new PersonRepository();
+            instance = new StarWarsRepository();
         }
         return instance;
     }
@@ -36,8 +38,7 @@ public class PersonRepository {
     }
 
     public void searchForPerson(int personId) {
-        PersonAPI personAPI = StarwarsServiceGenerator.getPersonAPI();
-        Call<PersonResponse> call = personAPI.getPerson(personId);
+        Call<PersonResponse> call = starwarsAPI.getPerson(personId);
         call.enqueue(new Callback<PersonResponse>() {
             @EverythingIsNonNull
             @Override
@@ -65,8 +66,7 @@ public class PersonRepository {
         try {
             int planetNumber = Integer.valueOf(split[5]);
 
-            PlanetAPI planetAPI = StarwarsServiceGenerator.getPlanetAPI();
-            Call<PlanetResponse> call = planetAPI.getPlanet(planetNumber);
+            Call<PlanetResponse> call = starwarsAPI.getPlanet(planetNumber);
             call.enqueue(new Callback<PlanetResponse>() {
                 @EverythingIsNonNull
                 @Override
