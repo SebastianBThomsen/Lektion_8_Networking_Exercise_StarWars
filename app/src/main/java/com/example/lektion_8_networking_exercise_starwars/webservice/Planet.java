@@ -2,9 +2,10 @@ package com.example.lektion_8_networking_exercise_starwars.webservice;
 
 public class Planet {
     private String name, climate, gravity, terrain;
-    private int rotation_period, orbital_period, diameter, surface_water, population;
+    private int rotation_period, orbital_period, diameter, surface_water;
+    private double population;
 
-    public Planet(String name, String climate, String gravity, String terrain, int rotation_period, int orbital_period, int diameter, int surface_water, int population) {
+    public Planet(String name, String climate, String gravity, String terrain, int rotation_period, int orbital_period, int diameter, int surface_water, double population) {
         this.name = name;
         this.climate = climate;
         this.gravity = gravity;
@@ -80,11 +81,26 @@ public class Planet {
         this.surface_water = surface_water;
     }
 
-    public int getPopulation() {
+    public double getPopulation() {
         return population;
     }
 
-    public void setPopulation(int population) {
+    public void setPopulation(double population) {
         this.population = population;
+    }
+
+    @Override
+    public String toString() {
+        return "Planet{" +
+                "name='" + name + '\'' +
+                ", climate='" + climate + '\'' +
+                ", gravity='" + gravity + '\'' +
+                ", terrain='" + terrain + '\'' +
+                ", rotation_period=" + rotation_period +
+                ", orbital_period=" + orbital_period +
+                ", diameter=" + diameter +
+                ", surface_water=" + surface_water +
+                ", population=" + population +
+                '}';
     }
 }

@@ -3,6 +3,7 @@ package com.example.lektion_8_networking_exercise_starwars.webservice;
 public class Person {
     private String name, hair_color, skin_color, eye_color, birth_year, gender;
     private int height, mass;
+    String homeworld;
 
     public Person(String name, String hair_color, String skin_color, String eye_color, String birth_year, String gender, int height, int mass) {
         this.name = name;
@@ -13,6 +14,14 @@ public class Person {
         this.gender = gender;
         this.height = height;
         this.mass = mass;
+    }
+
+    public String getHomeworld() {
+        return homeworld;
+    }
+
+    public void setHomeworld(String homeworld) {
+        this.homeworld = homeworld;
     }
 
     public String getName() {
@@ -77,5 +86,20 @@ public class Person {
 
     public void setMass(int mass) {
         this.mass = mass;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", hair_color='" + hair_color + '\'' +
+                ", skin_color='" + skin_color + '\'' +
+                ", eye_color='" + eye_color + '\'' +
+                ", birth_year='" + birth_year + '\'' +
+                ", gender='" + gender + '\'' +
+                ", height=" + height +
+                ", mass=" + mass +
+                ", homeworld='" + homeworld + '\'' +
+                '}';
     }
 }
