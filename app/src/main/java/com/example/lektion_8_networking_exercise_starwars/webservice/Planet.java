@@ -5,7 +5,7 @@ public class Planet {
     private int rotation_period, orbital_period, diameter, surface_water;
     private double population;
 
-    public Planet(String name, String climate, String gravity, String terrain, int rotation_period, int orbital_period, int diameter, int surface_water, double population) {
+    public Planet(String name, String climate, String gravity, String terrain, int rotation_period, int orbital_period, int diameter, double population) {
         this.name = name;
         this.climate = climate;
         this.gravity = gravity;
@@ -13,7 +13,6 @@ public class Planet {
         this.rotation_period = rotation_period;
         this.orbital_period = orbital_period;
         this.diameter = diameter;
-        this.surface_water = surface_water;
         this.population = population;
     }
 

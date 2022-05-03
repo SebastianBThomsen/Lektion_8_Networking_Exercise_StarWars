@@ -26,7 +26,9 @@ public class StarWarsFragment extends Fragment {
     private TextView name, hairColour, skinColour, gender, eyeColour, birthYear;
     private TextView height, mass;
     //Planet
-    private TextView planetName;
+    private TextView planetName, planetClimate, planetGravity, planetTerrain;
+    private TextView planetRotationPeriod, planetOrbitalPeriod, planetDiameter, planetSurfaceWater;
+    private TextView planetPopulation;
 
 
     @Override
@@ -55,6 +57,14 @@ public class StarWarsFragment extends Fragment {
 
         starWarsViewModelImpl.getSearchedPlanet().observe(getViewLifecycleOwner(), planet -> {
             planetName.setText(planet.getName());
+            planetClimate.setText(planet.getClimate());
+            planetGravity.setText(planet.getGravity());
+            planetTerrain.setText(planet.getTerrain());
+            planetRotationPeriod.setText(Integer.toString(planet.getRotation_period()));
+            planetOrbitalPeriod.setText(Integer.toString(planet.getOrbital_period()));
+            planetDiameter.setText(Integer.toString(planet.getDiameter()));
+            planetSurfaceWater.setText(Integer.toString(planet.getSurface_water()));
+            planetPopulation.setText(Double.toString(planet.getPopulation()));
         });
 
 
@@ -82,6 +92,14 @@ public class StarWarsFragment extends Fragment {
 
         //Planet
         planetName = binding.textViewPlanetName;
+        planetClimate = binding.textViewPlanetClimate;
+        planetGravity = binding.textViewPlanetGravity;
+        planetTerrain = binding.textViewPlanetTerrain;
+        planetRotationPeriod = binding.textViewPlanetRotationPeriod;
+        planetOrbitalPeriod = binding.textViewPlanetOrbitalPeriod;
+        planetDiameter = binding.textViewPlanetDiameter;
+        planetSurfaceWater = binding.textViewPlanetSurfaceWater;
+        planetPopulation = binding.textViewPopulation;
 
     }
 

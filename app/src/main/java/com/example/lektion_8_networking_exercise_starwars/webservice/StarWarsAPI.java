@@ -5,6 +5,9 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 public interface StarWarsAPI {
+    //API:
+    //https://swapi.dev/
+
     @GET("api/people/{number}")
     Call<PersonResponse> getPerson(@Path("number") int number);
 
