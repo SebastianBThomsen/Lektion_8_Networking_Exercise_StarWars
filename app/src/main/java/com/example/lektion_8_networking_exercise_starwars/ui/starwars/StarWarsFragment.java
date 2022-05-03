@@ -21,7 +21,8 @@ public class StarWarsFragment extends Fragment {
     private FragmentStarWarsBinding binding;
 
     private Button searchButton;
-    private TextView name, hairColour, skinColour, gender;
+    private TextView name, hairColour, skinColour, gender, eyeColour, birthYear;
+    private TextView height, mass;
     private EditText searchField;
 
 
@@ -62,6 +63,10 @@ public class StarWarsFragment extends Fragment {
         hairColour = binding.textViewHairColour;
         skinColour = binding.textViewSkinColour;
         gender = binding.textViewGender;
+        eyeColour = binding.;
+        birthYear = binding.;
+        height = binding.;
+        mass = binding.;
     }
 
 }
