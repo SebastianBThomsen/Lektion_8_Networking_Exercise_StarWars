@@ -44,8 +44,7 @@ public class StarWarsRepositoryImpl {
             @Override
             public void onResponse(Call<PersonResponse> call, Response<PersonResponse> response) {
                 if (response.isSuccessful()) {
-                    searchedPerson.setValue(response.body().getPerson());
-                    searchForPlanet(searchedPerson.getValue().getHomeworld());
+                    searchForPlanet(response.body().getPerson());
                 }
             }
 
@@ -59,7 +58,8 @@ public class StarWarsRepositoryImpl {
 
     }
 
-    private void searchForPlanet(String homeworld) {
+    private void searchForPlanet(Person person) {
+        String homeworld = person.getHomeworld();
         Log.d("Retrofit", "Homeworld String:  " + homeworld);
         String[] split = homeworld.split("/");
         //split[5] = planetNumber!
@@ -73,6 +73,7 @@ public class StarWarsRepositoryImpl {
                 @Override
                 public void onResponse(Call<PlanetResponse> call, Response<PlanetResponse> response) {
                     if (response.isSuccessful()) {
+                        searchedPerson.setValue(person);
                         searchedPlanet.setValue(response.body().getPlanet());
                         Log.i("Retrofit", "SUCCESS! - Planet searched for: " + response.body().getPlanet());
                     }
